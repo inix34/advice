@@ -75,3 +75,32 @@ p{
     box-shadow: 1px 1px 5px 8px var(--Green-300);
     
 }
+@media screen and (max-width:768px){
+   body{
+    min
+   }
+   
+    main{
+        width: 200%;
+        
+
+    }
+    .mobile{
+        display: block;
+    }
+    .desktop{
+        display: none;
+    }
+    .advice{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    figure{
+        margin-bottom: 2rem;
+    }
+    .dice{
+       left: 41.6%; 
+       margin-bottom: 1rem;
+    }
+    
+}
