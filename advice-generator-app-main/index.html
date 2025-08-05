@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h5>Advice # <span>117</span></h5>
+    <p class="advice">" It is easy to situp and take notice, what's difficult is getting up and taking action"</p>
+    <figure>
+      <img src="./images/pattern-divider-desktop.svg" alt="" class="desktop">
+      <img src="./images/pattern-divider-mobile.svg" alt="" class="mobile">
+    </figure>
+    <figure class="dice">
+      <img src="./images/icon-dice.svg" a lt="" class="images">
+    </figure>
+  </main>
+  <script>
+     document.addEventListener('DOMContentLoaded', () =>{
+      const adviceId = document.querySelector('.advice')
+      const advice = document.querySelector('span')
+
+      const api = async () => {
+        try {
+          const apiFetch = await fetch('https:api.adviceslip.com/advice/search/try')
+          const response = await apiFetch.json()
+          
+          const slips = response.slips
+    
+          const dice = document.querySelector('.dice')
+          dice.onclick = () =>{
+            const id = Math.floor(Math.random()* 20)
+
+            advice.innerHTML = `"${slips[id].id}"`
+            adviceId.innerHTML = slips[id].advice
+          }
+
+        } catch (error) {
+          console.error("There is an error fetching:" + error)
+        }
+      }
+      api()
+    })
+
+     
+  </script>
+</body>
+</html>
